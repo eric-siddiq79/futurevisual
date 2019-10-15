@@ -1,0 +1,133 @@
+.footer {
+    padding: 33px 0 105px;
+    background-color: $color-secondary;
+    border-top: 1px solid $color-secondary-dark;
+    color: $color-base-light;
+
+    @include respond-to('mobile') {
+        padding-bottom: 40px;
+    }
+
+    .footer-logo {
+        margin-bottom: 20px;
+    }
+
+    &-links {
+        color: $color-base-light;
+        font-size: 13px;
+        line-height: 16px;
+        text-align: center;
+
+        @include respond-to('tablate') {
+            text-align: left;
+        }
+
+        a {
+            border-right: 1px solid $color-base-light;
+            padding: 0 10px;
+            color: $color-base-dark;
+            margin: 5px 0 0 -4px;
+            margin-top: 5px;
+            display: inline-block;
+
+            @include respond-to('tablate') {
+                margin-top: 0;
+                padding: 0 19px 0 18px;
+            }
+
+            &:first-child {
+                padding-left: 0;
+                margin-left: 0;
+            }
+
+            &:nth-last-of-type(1) {
+                margin-right: 0;
+                border-right: 0;
+
+                @include respond-to('tablate') {
+                    margin-right: 19px;
+                    border-right: 1px solid $color-base-light;
+                }
+            }
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    &-copyright {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+
+        @include respond-to('tablate') {
+            display: inline-block;
+            text-align: left;
+            margin-top: 0;
+        }
+    }
+
+    .footer-links-wrap {
+        display: inline-block;
+        vertical-align: bottom;
+        padding-right: 20px;
+        width: 100%;
+        margin-right: 0;
+
+        @include respond-to('tablateLandscape') {
+            width: 59.64285714285714%;
+            margin-right: -2.5px;
+        }
+    }
+
+    .subscription {
+        color: $color-white;
+        display: inline-block;
+        vertical-align: bottom;
+        width: 100%;
+        margin-top: 30px;
+
+        @include respond-to('tablateLandscape') {
+            width: 40.35714285714286%;
+            margin-left: -2.5px;
+            margin-top: 0;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        &-form {
+            position: relative;
+        }
+
+        &-email {
+            border-radius: 22px;
+            padding: 10px 160px 10px 22px;
+            font-size: 14px;
+            font-family: $secondary-font;
+            font-weight: 400;
+
+        }
+
+        &-btn {
+            width: 100%;
+            margin-top: 10px;
+            @include respond-to('tablate') {
+                position: absolute;
+                right: 0;
+                top: 0;
+                z-index: 5;
+                width: 158px;
+                margin-top: 0;
+            }
+        }
+
+        input {
+            height: 44px;
+        }
+    }
+
+}

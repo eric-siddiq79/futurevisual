@@ -1,0 +1,54 @@
+/* nav icon style */
+
+.phone-nav{
+	position: absolute;
+	width: 30px;
+	height: 20px;
+	right: 20px; 
+	top: 33px;
+	cursor: pointer;
+	display: none;
+	@include respond-to('mobile') {
+    	display: block;
+  	}
+}
+.nav-icon{
+	position: relative;
+	width: 30px;
+	height: 2px;
+	margin-top: 8px;
+	background-color: $color-primary;
+}
+
+.nav-icon{
+	&::before,
+	&::after{
+		position: absolute;
+		margin-top: 8px;
+		content: "";
+		width: 30px;
+		height: 2px;
+		background-color: $color-primary;
+		@include transition(all .3s);
+	}
+	&::before{
+		margin-top: -8px;
+	}
+}
+
+.navExpanded{
+	.nav-icon{
+		background-color: transparent;
+		&::before,
+		&::after{
+			margin: 0;
+			@include rotate(-45);
+
+		}
+	}
+	.nav-icon{
+		&::after{
+			@include rotate(45);
+		}
+	}
+}

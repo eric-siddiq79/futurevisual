@@ -1,0 +1,269 @@
+/*====================
+** Mixins Scss
+====================*/
+
+// include fonts
+@mixin font-face($name, $file) {
+   @font-face {
+   font-family: "#{$name}";
+   src: url("../fonts/#{$file}.eot");
+   src: url("../fonts/#{$file}.eot?#iefix") format("embedded-opentype"),
+   url("../fonts/#{$file}.woff") format("woff"),
+   url("../fonts/#{$file}.ttf") format("truetype"),
+   url("../fonts/#{$file}.svg?#webfont") format("svg");
+ }
+}
+
+
+// Define vertical, horizontal, or both position
+
+@mixin center($position) {
+  position: absolute;
+  
+  @if $position == 'vertical' {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  @else if $position == 'horizontal' {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translate(-50%);
+  }
+  @else if $position == 'both' {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+}
+
+
+
+
+
+// Single side border-radius
+@mixin border-top-radius($radius) {
+  border-top-right-radius: $radius;
+   border-top-left-radius: $radius;
+}
+@mixin border-right-radius($radius) {
+  border-bottom-right-radius: $radius;
+     border-top-right-radius: $radius;
+}
+@mixin border-bottom-radius($radius) {
+  border-bottom-right-radius: $radius;
+   border-bottom-left-radius: $radius;
+}
+@mixin border-left-radius($radius) {
+  border-bottom-left-radius: $radius;
+     border-top-left-radius: $radius;
+}
+
+// BORDER RADIUS
+@mixin border-radius($radius){
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+//user select
+@mixin user-select($user){
+  -webkit-user-select: $user;
+  -moz-user-select: $user;
+  -ms-user-select: $user;
+  user-select: $user;
+}
+//box sizing 
+@mixin box-sizing($box){
+    box-sizing: $box;
+    -moz-box-sizing: $box;
+    -webkit-box-sizing: $box;
+}
+
+//placeholder
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}  
+}
+
+@mixin placeholder-color($color) {
+  &::-webkit-input-placeholder { /* WebKit browsers */
+      color: $color;
+  }
+  &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+      color: $color;
+  }
+  &::-moz-placeholder { /* Mozilla Firefox 19+ */
+      color: $color;
+  }
+  &:-ms-input-placeholder { /* Internet Explorer 10+ */
+      color: $color;
+  }
+}
+
+//   transition 
+@mixin transition($value, $effect:ease) {
+    -moz-transition: $value $effect;
+    -o-transition: $value $effect;
+    -webkit-transition: $value $effect;
+    -ms-transition: $value $effect;
+    transition: $value $effect;
+}
+
+
+//transform
+@mixin transform($transform){
+    -ms-transform: $transform; /* IE 9 */
+    -webkit-transform: $transform; /* Chrome, Safari, Opera */
+    transform: $transform;
+}
+// rotate
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+ 
+// scale
+@mixin scale($scale) {
+   @include transform(scale($scale));
+} 
+// translate
+@mixin translate ($x, $y) {
+   @include transform(translate($x, $y));
+}
+// translate rotate
+@mixin translate-rotate ($x, $y,$deg) {
+   @include transform(translate($x, $y)rotate(#{$deg}));
+}
+// skew
+@mixin skew ($x, $y) {
+   @include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+@mixin rotate3d($vector-x: $default-vector-x, $vector-y: $default-vector-y, $vector-z: $default-vector-z, $rotate: $default-rotate, $perspective: false) {
+  $trans: rotate3d($vector-x, $vector-y, $vector-z, $rotate);
+  @if $perspective {
+    $trans: perspective($perspective) $trans;
+  }
+  
+}
+
+
+@mixin even(){
+  &:nth-child(even) {
+    @content
+  }
+}
+
+@mixin odd(){
+  &:nth-child(odd) {
+    @content
+  }
+}
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+
+
+@mixin selectArrow($arrow){
+    
+        -webkit-appearance:$arrow;
+        -moz-appearance:$arrow;
+        appearance:$arrow;
+}
+
+
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+@mixin animate($name, $duration, $iteration, $direction) {
+  -webkit-animation-duration: $duration;
+     -moz-animation-duration: $duration;
+       -o-animation-duration: $duration;
+          animation-duration: $duration;
+  -webkit-animation-iteration-count: $iteration;
+     -moz-animation-iteration-count: $iteration;
+       -o-animation-iteration-count: $iteration;
+          animation-iteration-count: $iteration;
+  -webkit-animation-name: $name;
+     -moz-animation-name: $name;
+       -o-animation-name: $name;
+          animation-name: $name;
+  -webkit-animation-direction: $direction;
+     -moz-animation-direction: $direction;
+       -o-animation-direction: $direction;
+          animation-direction: $direction;
+}
+
+
+/*********************
+BREAKPOINTS
+*********************/
+/*
+ @mixin breakpoint($point) {
+   @if $point == desktop {
+     @media (min-width: 1400px) { @content ; }
+  }
+   @else if $point == laptop {
+     @media (min-width: 1200px) { @content ; }
+  }
+    @else if $point == tablet {
+     @media (min-width: 768px) { @content ; }
+  }
+   @else if $point == tabletland {
+     @media (min-width: 991px)  { @content ; }
+  }
+  @else if $point == mobile {
+     @media (max-width: 767px)  { @content ; }
+
+  }
+}
+
+*/
+
+
+/// Mixin to manage responsive breakpoints
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+@mixin respond-to($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+ 
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+

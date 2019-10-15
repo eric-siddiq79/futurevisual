@@ -1,0 +1,92 @@
+/* Nav style */
+.nav-wrapper {
+    @include respond-to('tablate') {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    @include respond-to('tablateLandscape') {
+        margin-left: auto;
+        width: auto;
+        text-align: inherit;
+    }
+
+    @include respond-to('mobile') {
+        display: none;
+        padding-bottom: 30px;
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+
+        .btn {
+            margin-top: 20px;
+            display: inline-block;
+        }
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+
+        @include respond-to('mobile') {
+            padding-top: 30px;
+        }
+
+        li {
+            display: inline-block;
+            margin: 10px 0;
+
+            @include respond-to('mobile') {
+                width: 100%;
+            }
+
+            @include respond-to('tablate') {
+                margin: 0 7px;
+            }
+
+            @include respond-to('desktop') {
+                margin: 0 20px;
+            }
+
+            a {
+                color: $color-white;
+                position: relative;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 50%;
+                    bottom: -6px;
+                    margin-top: 44px;
+                    width: 0;
+                    height: 3px;
+                    background-color: $color-primary;
+                    @include transition(all .3s, ease);
+                    @include translate(-50%, -50%);
+                }
+
+                @include respond-to('tablate') {
+                    &::after {
+                        bottom: -26px;
+                    }
+                }
+
+                @include respond-to('tablateLandscape') {
+                    &::after {
+                        bottom: -46px;
+                    }
+                }
+            }
+
+            &.current-menu-item,
+            &:hover {
+                a {
+                    &::after {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

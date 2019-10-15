@@ -1,0 +1,16 @@
+.btn{
+	border-radius: 50px;
+	padding: 13px 30px;
+	color: $color-white;
+	border: 0;
+	box-shadow: none;
+	outline: none;
+    font-family: inherit;
+    font-weight: 700;
+	&:focus{
+		outline: none;
+	}
+	&.primary-btn{
+		background-color: $color-primary;
+	}
+}

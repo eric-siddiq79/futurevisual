@@ -1,0 +1,137 @@
+/* base style */
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    &:focus {
+        outline: 0;
+        border: 0;
+    }
+}
+
+.main-wrapper {
+    overflow: hidden;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+
+.clear:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+    font-size: 0;
+}
+
+.d-flex {
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    /* @supports (display: flex) or (display: -webkit-box) {
+        display: -webkit-flex;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        flex-flow: row wrap;
+    }*/
+}
+
+.d-flex-column {
+    flex-direction: column;
+}
+
+.align-items-start {
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+}
+
+.align-items-center {
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.align-items-end {
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+}
+
+.align-items-baseline {
+    -webkit-align-items: baseline;
+    align-items: baseline;
+}
+
+.align-items-stretch {
+    -webkit-align-items: stretch;
+    align-items: stretch;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.mr-auto {
+    margin-right: auto;
+}
+
+.container {
+    width: 1460px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+
+    @include respond-to('tablate') {
+        padding: 0 30px;
+    }
+}
+
+.section-title {
+    width: 920px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.bg-property {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* bg-color */
+.bg-gradient-primary {
+    background: #190846;
+    background: -moz-linear-gradient(top, #190846 0%, #110531 100%);
+    background: -webkit-linear-gradient(top, #190846 0%, #110531 100%);
+    background: linear-gradient(to bottom, #190846 0%, #110531 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#190846', endColorstr='#110531', GradientType=0);
+}
+
+/* intial color */
+.color {
+    &-primary {
+        color: $color-secondary;
+    }
+
+    &-wihte {
+        color: #fff;
+    }
+}

@@ -1,0 +1,53 @@
+$bootstrap-sass-asset-helper: false !default;
+
+/*====================
+** Variable Scss
+====================*/
+
+//== Template Main Color
+$color-base: #49415D;
+$color-base-light: #9791A8;
+$color-base-dark: #A19CB1;
+
+$color-white: #fff;
+$color-black: #000;
+$color-primary: #D50E0A;
+$color-secondary: #110531;
+$color-secondary-light: #2C1767;
+$color-secondary-dark: #292D4E;
+
+
+
+//hover white color;
+$hoverWhite : #fdfdfd;
+
+/*section background color*/
+$section-bg-color: #E6E6E9;
+/*border color*/
+$b-color: #ddd;
+
+
+
+//== Typography
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800|Roboto:400,500,700,900');
+
+$base-font : 'Roboto',
+sans-serif;
+$secondary-font: 'Open Sans',
+sans-serif;
+
+
+
+// border-radius
+$border-radius-base: rem(5px) !default;
+$border-radius-large: rem(25px) !default;
+$border-radius-small: rem(3px) !default;
+$border-radius-circle: 50% !default;
+
+// Breakpoint
+$breakpoints: (
+    'sm-mobile': (max-width: 375px),
+    'mobile': (max-width: 767px),
+    'tablate': (min-width: 768px),
+    'tablateLandscape': (min-width: 992px),
+    'desktop': (min-width: 1200px)) !default;

@@ -1,0 +1,28 @@
+/* Main Scss */
+@import "abstracts/_mixins",
+"abstracts/_functions",
+"abstracts/_variables";
+
+
+/* vendors */
+@import "vendors/_normalize";
+
+/* base */
+@import "base/_base",
+"base/_typography";
+
+/* components */
+@import "components/_navicon",
+		"components/_nav",
+		"components/_button",
+		"components/_form";
+
+
+/* layout */
+@import "layout/_header",
+"layout/_footer";
+
+
+/* page  */
+@import "page/_home";
+

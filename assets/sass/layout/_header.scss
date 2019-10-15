@@ -1,0 +1,23 @@
+.main-header{
+	width: 100%;
+	padding: 20px 0;
+	background-color: $color-secondary;
+	border-bottom: 1px solid #29135C;
+	@include respond-to('mobile') {
+    	padding: 10px 0;
+    	position: fixed;
+    	z-index: 999;
+  	}
+}
+.logo{
+	width: 178px;
+}
+
+.logo-wrap{
+	@include respond-to('tablate') {
+		margin: 0 auto 20px;
+	}
+	@include respond-to('tablateLandscape') {
+		margin: 0;
+	}
+}
